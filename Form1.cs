@@ -47,5 +47,18 @@ namespace Biblioteque {
                 }
             }
         }
+
+
+        /// <summary>
+        /// Удалить книгу
+        /// </summary>
+        private void Button3_Click(object sender, EventArgs e) {
+            if (dataGridView1.SelectedRows.Count > 0) {
+                Book book = (Book)dataGridView1.SelectedRows[0].DataBoundItem;
+                if (MessageBox.Show("Удалить книгу?", "Внимание!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) {
+                    Books.Remove(book);
+                }
+            }
+        }
     }
 }
