@@ -32,5 +32,20 @@ namespace Biblioteque {
                 }
             }
         }
+
+
+        /// <summary>
+        /// Редактировать книгу
+        /// </summary>
+        private void Button2_Click(object sender, EventArgs e) {
+            if (dataGridView1.SelectedRows.Count > 0) {
+                Book book = (Book)dataGridView1.SelectedRows[0].DataBoundItem;
+                using (BookForm dlg = new BookForm(book)) {
+                    if (dlg.ShowDialog() == DialogResult.OK) {
+                        Books.ResetBindings();
+                    }
+                }
+            }
+        }
     }
 }
