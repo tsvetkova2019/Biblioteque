@@ -95,5 +95,20 @@ namespace Biblioteque {
                 }
             }
         }
+
+
+        /// <summary>
+        /// Поиск книг
+        /// </summary>
+        private void TextBox1_TextChanged(object sender, EventArgs e) {
+            string filter = textBox1.Text.Trim().ToLower();
+            Book book = Books.FirstOrDefault(t => t.Name.ToLower().Contains(filter) || t.Author.ToLower().Contains(filter));
+            if (book != null) {
+                int index = Books.IndexOf(book);
+                dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0];
+            } else {
+                dataGridView1.CurrentCell = null;
+            }
+        }
     }
 }
